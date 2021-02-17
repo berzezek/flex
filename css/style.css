@@ -1,0 +1,90 @@
+:root {
+  --gradient-color: linear-gradient(to bottom,
+    rgb(32,0,163) 0%,rgb(255,255,255)
+    47%,rgb(255,255,255) 47%,rgb(255,255,255)
+    49%,rgb(112,1,0) 100%);
+    /* --gradient-color_2: #700100; */
+  --block-color: #700100;
+  --block-size: 200px;
+}
+
+@keyframes anim__slide_color {
+  0% {background: var(--gradient-color)}
+  50% {background: var(--block-color)}
+  100% {background: var(--gradient-color)}
+}
+
+@keyframes anim__slide {
+  0% {left: 0px; top: 0px;}
+  50% {left: 100px; top: 100px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes anim__rot {
+  70% {transform: rotate(-30deg) scale(1.5);}
+  100% {transform: rotate(0deg);}
+}
+
+.block {
+  border-radius: 10px;
+  margin: 20px 20px;
+  width: var(--block-size);
+  height: var(--block-size);
+  background: var(--block-color);
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.anim__slide {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: var(--gradient-color);
+
+}
+.anim__slide{
+  animation-name: anim__slide_color;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.anim__slide:hover {
+  animation-name: anim__slide;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.2s;
+}
+.anim {
+  display: flex;
+  z-index: 1
+}
+
+.mid {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  margin-left: calc(var(--block-size) * 1.2);
+  justify-content: space-around;
+  align-items: center;
+  z-index: 0;
+}
+.mid__2 {
+  margin-left: var(--block-size);
+}
+
+.anim__rot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  }
+
+.anim__rot:hover {
+  animation-name: anim__rot;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0.2s;
+}
